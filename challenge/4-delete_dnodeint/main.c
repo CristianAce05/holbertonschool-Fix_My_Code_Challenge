@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "lists.h"
+
+/**
+ * main - entry point
+ *
+ * Return: 0
+ */
+int main(void)
+{
+	dlistint_t *head;
+	int i;
+
+	head = NULL;
+	add_dnodeint_end(&head, 0);
+	add_dnodeint_end(&head, 1);
+	add_dnodeint_end(&head, 2);
+	add_dnodeint_end(&head, 3);
+	add_dnodeint_end(&head, 4);
+	add_dnodeint_end(&head, 98);
+	add_dnodeint_end(&head, 402);
+	add_dnodeint_end(&head, 1024);
+	print_dlistint(head);
+	printf("-----------------\n");
+	delete_dnodeint_at_index(&head, 5);
+	print_dlistint(head);
+	printf("-----------------\n");
+	i = 0;
+	while (i < 16)
+	{
+		delete_dnodeint_at_index(&head, 0);
+		print_dlistint(head);
+		printf("-----------------\n");
+		i++;
+	}
+	free_dlistint(head);
+	return (0);
+}
